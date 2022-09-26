@@ -1,0 +1,59 @@
+import { useEffect, useState, useRef, useContext, useMemo, useCallback } from 'react';
+import { imprimirClickAlCrear, imprimirClickAlActualizar } from './Funciones';
+
+const App  = ( props ) => {
+
+    let jsx = null;
+
+    //const [ contadorCliks, setContadorClicks ] = useState( 0 );
+
+    const [ usuario, setUsuario ] = useState({
+        name: 'Antonio',
+        email: 'y',
+        edad: 31
+    });
+
+    const changeStateBtnRef = useRef( null );
+    
+    useEffect( () => {
+
+        //console.log( usuario );
+        console.log( changeStateBtnRef );
+        console.log( changeStateBtnRef.current );
+        //changeStateBtnRef.current.disabled = true;
+
+        //imprimirClickAlCrear( contadorCliks );
+
+    }, [ usuario ]);
+
+    /*const sumCliksHandler = () => {
+
+        let cliks = contadorCliks + 1;
+        setContadorClicks( cliks );
+
+    }*/
+
+    const changeUserHandler = () => {
+
+        setUsuario({
+            ...usuario,
+            name: 'Elizabeth'
+        });
+
+    } 
+
+    /*if( contadorCliks === 0 )
+        jsx = <button onClick={ sumCliksHandler }>Clicks: { contadorCliks }</button>;
+    else 
+        jsx = <button onClick={ sumCliksHandler }>Actualizando Clicks: { contadorCliks }</button>;*/
+
+    jsx = (
+        <h1>{ usuario.name }</h1>,
+        <button className='boton' ref={ changeStateBtnRef } onClick={ changeUserHandler }>Cambiar estado</button>
+    );
+
+    return( jsx );
+
+}
+
+export default App;

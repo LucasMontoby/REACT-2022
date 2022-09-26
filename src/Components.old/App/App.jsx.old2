@@ -1,0 +1,25 @@
+import React from "react";
+import Card from "../CardBasic/Card";
+
+const App = () => {
+
+    return (
+
+        [
+            <Card title="Carta Uno">
+                <p>Lorem Ipsum dolom</p>
+            </Card>,
+
+            <Card title="Carta Dos">
+                <ul>
+                    <li key="1">1</li>
+                    <li key="2">2</li>
+                </ul>
+            </Card>
+        ]
+
+    )
+
+}
+
+export default App;

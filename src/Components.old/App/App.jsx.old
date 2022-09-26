@@ -1,0 +1,58 @@
+import React, { Component } from 'react';
+
+class App extends Component {
+
+    constructor(){
+
+        super();
+
+        this.state = {
+
+            contador: 0,
+            mensaje: 'Iniciando'
+
+        }
+
+    }
+
+    componentDidMount(){
+        
+        console.log( "Iniciando el componente..." );
+    
+    }
+
+    componentDidUpdate(){
+
+        console.log( "Actualizando estado del componente" );
+        console.log( this.state );
+
+    }
+
+    componentWillUnmount(){
+
+        console.log( "Termina de montarse el componente" );
+
+    }
+
+    contarClicks = ( evt ) => {
+
+        this.setState({
+
+            contador: this.state.contador + 1
+
+        });
+
+    }
+
+    render(){
+
+        return <button onClick={ this.contarClicks }>Contar { this.state.contador }</button>;
+
+    }
+
+}
+
+export default App;
+
+// Componentes funcionales es decir que no son de class y quieres invocar el parametro evt
+//( evt ) => contarClicks( evt )
